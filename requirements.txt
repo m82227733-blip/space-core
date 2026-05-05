@@ -86,3 +86,5 @@ whitenoise==6.12.0
 wikipedia==1.4.0
 yarl==1.22.0
 yt-dlp==2025.12.8
+gunicorn==25.3.0
+
