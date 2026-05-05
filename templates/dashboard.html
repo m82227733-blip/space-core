@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <!-- Profil qismi -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm p-4 text-center" style="border-radius: 20px;">
+            <i class="fas fa-user-circle fa-5x mb-3 text-primary"></i>
+            <h4 class="fw-bold">{{ user.username }}</h4>
+            <a href="{% url 'create_post' %}" class="btn btn-primary w-100 mt-3" style="border-radius: 10px;">
+                <i class="fas fa-plus-circle me-2"></i>Yangi qo'shish
+            </a>
+        </div>
+    </div>
+
+    <!-- Topshiriqlar ro'yxati -->
+    <div class="col-md-8">
+        <h3 class="fw-bold mb-4">Topshiriqlar</h3>
+        {% if assignments %}
+            <div class="row g-3">
+                {% for item in assignments %}
+                <div class="col-12">
+                    <div class="card shadow-sm p-3" style="border-radius: 15px; border-left: 6px solid #7000ff;">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="mb-1 fw-bold">{{ item.title }}</h5>
+                                <p class="text-muted small mb-0">{{ item.content|truncatewords:10 }}</p>
+                            </div>
+                            <a href="{% url 'solve_assignment' item.pk %}" class="btn btn-primary px-4" style="border-radius: 10px;">Yechish</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-light text-center py-5 shadow-sm" style="border-radius: 15px;">
+                <p class="text-muted">Hozircha topshiriqlar yo'q.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

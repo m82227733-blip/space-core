@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow p-4" style="border-radius: 20px;">
+            <h3 class="fw-bold mb-4 text-primary text-center">Yangi topshiriq</h3>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Sarlavha</label>
+                    <input type="text" name="title" class="form-control" placeholder="Masalan: 6-sinf Matematika" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Topshiriq matni</label>
+                    <textarea name="content" class="form-control" rows="4" placeholder="Savolni shu yerga yozing..." required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">To'g'ri javob</label>
+                    <input type="text" name="correct_answer" class="form-control" placeholder="Javobni kiriting..." required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Rasm (ixtiyoriy)</label>
+                    <input type="file" name="image" class="form-control">
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg" style="border-radius: 12px;">Qo'shish</button>
+                    <a href="{% url 'student_dashboard' %}" class="btn btn-light">Bekor qilish</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

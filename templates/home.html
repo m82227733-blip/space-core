@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center py-5">
+    <h1 class="hero-title mb-4">Spacega xush kelibsiz</h1>
+    <p class="lead mb-5 text-secondary">Mars IT Academy talabalari uchun maxsus ekotizim</p>
+    
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-3">
+            <div class="glass-card p-4 text-center">
+                <h3>Student</h3>
+                <a href="{% url 'student_dashboard' %}" class="btn btn-outline-info w-100 mt-3">Kirish</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="glass-card p-4 text-center">
+                <h3>Ota-ona</h3>
+                <button class="btn btn-outline-light w-100 mt-3">Yaqinda...</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
